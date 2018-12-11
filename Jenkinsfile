@@ -33,13 +33,13 @@ stages{
             parallel{
                 stage ('Deploy to Staging'){
                     steps {
-                        bat "echo y | pscp -i ${ppk_path} "${war_path}" ec2-user@${params.tomcat_dev}:${target_path}"
+                        bat "echo y | pscp -i ${ppk_path} \"${war_path}\" ec2-user@${params.tomcat_dev}:${target_path}"
                     }
                 }
 
                 stage ("Deploy to Production"){
                     steps {
-                        bat "echo y | pscp -i ${ppk_path} "${war_path}" ec2-user@${params.tomcat_prod}:${target_path}"
+                        bat "echo y | pscp -i ${ppk_path} \"${war_path}\" ec2-user@${params.tomcat_prod}:${target_path}"
                     }
                 }
             }
